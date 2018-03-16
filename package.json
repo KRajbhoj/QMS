@@ -1,0 +1,14 @@
+{
+  "name": "token",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "express": "~4.15.5",
+    "http": "0.0.0",
+    "nodemon": "^1.17.2"
+  }
+}
