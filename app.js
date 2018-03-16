@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.all('/', function (req, res) {
   let response = {
     "status": "success",
-    "message": "Successfully pinged"
+    "message": "Successfully pinged der"
   };
   res.send(response);
   res.end();
