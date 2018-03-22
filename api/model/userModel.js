@@ -52,7 +52,6 @@ let UserSchema = Schema({
 
 let mstUser = mongoose.model('mstUser',UserSchema);
 
-
 module.exports = {
   mstUser : mstUser
 }

@@ -14,32 +14,37 @@ module.exports = {
     var createUserRequest = {
       id: '/createUserRequest',
       type: 'Object',
-      properties: {
-        firstName: {
-          type: "string",
-          required: true
-        },
-        lastName: {
-          type: "string",
-          required: true
-        },
-        userName: {
-          type: "string",
-          required: true
-        },
-        email: {
-          type: "string",
-          required: true
-        },
-        contactNo: {
-          type: "string",
-          required: true
-        },
-        password: {
-          type: "string",
-          required: true
-        }
-      },
+       properties: {
+            data: {
+                type: "object",
+                 properties: {
+                  firstName: {
+                    type: "string",
+                    required: true
+                  },
+                  lastName: {
+                    type: "string",
+                    required: true
+                  },
+                  userName: {
+                    type: "string",
+                    required: true
+                  },
+                  email: {
+                    type: "string",
+                    required: true
+                  },
+                  contactNo: {
+                    type: "string",
+                    required: true
+                  },
+                  password: {
+                    type: "string",
+                    required: true
+                  }
+                }
+            }
+       },
       additionalProperties: false
     }
     v.addSchema(createUserRequest, '/createUserRequest');

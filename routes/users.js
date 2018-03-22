@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 
-let userController = require('../api/user/userController');
+let userController = require('../api/controller/userController');
 
 router.get('/getAllUsers', (req,res,next) => {
   res.send('respond with a resource');
