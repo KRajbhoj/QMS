@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 
 function DBHandler()
 {
@@ -6,15 +6,15 @@ function DBHandler()
     {
         switch(queryType)
         {
-            case 'insert' :  insertData(model,  data, whereCondition, options);
+            case 'insert' :  return insertData(model,  data, whereCondition, options);
                              break;
-            case 'update' :  updateData(model,  data, whereCondition, options);
+            case 'update' :  return updateData(model,  data, whereCondition, options);
                              break;
-            case 'delete' :  deleteData(model,  data, whereCondition, options);
+            case 'delete' :  return deleteData(model,  data, whereCondition, options);
                              break;
-            case 'findOne' : findOne(model,  data, whereCondition, options);
+            case 'findOne' : return findOne(model,  data, whereCondition, options);
                              break;
-            case 'findAll' : findAll(model,  data, whereCondition, options);
+            case 'findAll' : return findAll(model,  data, whereCondition, options);
                              break;
         }
     }
@@ -41,7 +41,7 @@ function DBHandler()
 
     let findAll = function(model,  data, whereCondition, options)
     {
-        return model.find(whereCondition);
+        return model.findAll(whereCondition);
     }
 }
 

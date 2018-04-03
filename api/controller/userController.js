@@ -1,18 +1,19 @@
 let validateJsonSchema = require('../validator/userValidator');
-let userModel = require('../model/userModel');
-let User = userModel.mstUser;
+let models = require('../model');
+let userService = require('../service/userService');
+//let User = userModel.mstUser;
 let enums = require("../../config/enum");
 let dbHandler = require("../utility/dbHandler");
 let utility = require("../utility/util");
 
 function UserController()
 {
-  this.registerUser(req, res)
+  this.registerUser = function(req, res)
   {
       let response;
       validateJsonSchema.createUser(req.body)
       .then((somthng) => {
-        return dbHandler.callDb(enums.INSERT, User, req.body.data, {}, {});
+        return userService.insertUser(req.body.data);
       })
       .then((createUserResp) => {
         response = utility.setSuccessResponse(200, "Success", createUserResp);
@@ -24,22 +25,32 @@ function UserController()
       })
   }
 
-  this.updateUser(req, res)
+  this.updateUser = function(req, res)
   {
 
   }
 
-  this.deleteUser(req, res)
+  this.deleteUser = function(req, res)
   {
     
   }
 
-  this.getAllUsers(req, res)
+  this.getAllUsers = function(req, res)
   {
+    var response;
 
+    return userService.getAllUsers()
+      .then(result => {
+        response = utility.setSuccessResponse(200, "Success", result);
+        res.send(response);
+      })
+      .catch(err => {
+        response = utility.serErrorResponse(400, "Error", err);
+        res.status(500).send(response);
+      });
   }
 
-  this.getUser(req, res)
+  this.getUser = function(req, res)
   {
 
   }

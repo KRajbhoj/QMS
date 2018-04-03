@@ -33,14 +33,15 @@ app.use(function(req, res, next) {
 app.listen(3000, () => {
   console.log("Server is listening at port 3000")
 })
-mongoose.connect('mongodb://localhost/tokenDB')
-.then(()=>{
-   useMongoClient: true;
-  console.log("Connected to DB Success")
-})
-.catch((e)=>{
-  console.log("Didint Conenccted to DB",e)
-});
+
+// mongoose.connect('mongodb://localhost/tokenDB')
+// .then(()=>{
+//    useMongoClient: true;
+//   console.log("Connected to DB Success")
+// })
+// .catch((e)=>{
+//   console.log("Didint Conenccted to DB",e)
+// });
 
 
 module.exports = app;

@@ -8,11 +8,7 @@ var env       = require('../../config/enum') || 'development';
 var config    = require('../../config/config');
 var db        = {};
 
-if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  var sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+var sequelize = new Sequelize(config.development.database, config.development.username, config.development.password, config.development.options);
 
 fs
   .readdirSync(__dirname)
@@ -21,6 +17,8 @@ fs
   })
   .forEach(file => {
     var model = sequelize['import'](path.join(__dirname, file));
+    console.log(model.name);
+    console.log(model);
     db[model.name] = model;
   });
 
